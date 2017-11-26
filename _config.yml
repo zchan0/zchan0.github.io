@@ -17,7 +17,7 @@ title: Cc's Blog
 email: zchan0@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "minesecret.space" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://zchan0.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # social accounts
 twitter_username: zcchan0
@@ -36,7 +36,7 @@ social:
   links:
     - https://twitter.com/zcchan0
     - https://www.douban.com/people/theyear/
-    - (https://instagram.com/zcccen/
+    - https://instagram.com/zcccen/
     - https://github.com/zchan0
 
 webmaster_verifications:
@@ -48,6 +48,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-compose
+  - jekyll-sitemap
 
 
 # Exclude from processing.
