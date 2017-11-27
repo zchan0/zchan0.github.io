@@ -2,8 +2,11 @@
 layout: post
 title:  "Web Tooling"
 date:   2017-11-25 19:42:20 -0500
-categories: frontend notes
+categories: notes frontend
 ---
+
+* TOC
+{:toc}
 
 虽然之前用过Yoeman这类的scaffolding tool，但是看着一通`npm install`之后的一堆文件总觉得有点懵。趁着重构[Memory Game](https://github.com/zchan0/MemoryGame)，正好一点点学习为什么要用到Gulp，Webpack，Babel之类的工具，怎么简单使用，以及一些注意事项。
 

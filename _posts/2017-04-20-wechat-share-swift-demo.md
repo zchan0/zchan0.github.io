@@ -1,9 +1,14 @@
 ---
 layout: post
-title: WeChat Share Demo with Swift
+title: iOS 微信分享实现
 date: 2017-04-20 10:10 -0500
-categories: iOS notes
+categories: notes iOS
 ---
+
+* TOC
+{:toc}
+
+主要内容包括集成微信SDK的步骤，如何通过Swift调用，以及如何实现一次分享。Demo封装了一个ShareManager，可以快速实现分享文字、图片和链接到微信。
 
 ## Installation
 

@@ -1,9 +1,12 @@
 ---
 layout: post
-title: Cross GFW in Terminal
+title: Mac 的终端穿墙术
 date: 2015-12-07 9:42:20 -0500
-categories: tools
+categories: notes tools
 ---
+
+* TOC
+{:toc}
 
 ## Proxychains
 升级到El Capitan之前的神器，使用方式可以参考这篇文章 [^1]。不过他主要讲的使用SS的配置方式，如果是VPN的话， [ProxyList]下面应该填写
