@@ -6,21 +6,20 @@ $base-font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB
 $quote-font: Palatino, Optima, Georgia, serif;
 $code-font: "Source Code Pro", Consolas, "Liberation Mono", Menlo, Courier, monospace;;
 
-$base-font-size:   16px !default;
+$base-font-size:   17px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 
-$base-line-height: 1.8 !default;
-$header-line-height: 1.35;
+$base-line-height: 2 !default;
 
 $spacing-unit:     30px !default;
 
 // Colors
-$text-color:             #111 !default;
+$text-color:             #222222 !default;
 $highlight-color:        #fffdd1 !default;
 $highlight-border-color: #ffedce !default;
 
-$code-background-color: #F8F9FA !default;
+$code-background-color: #f8f9fa !default;
 $background-color:      #fdfdfd !default;
 $hr-color:              #cfcfcf !default;
 
@@ -32,9 +31,9 @@ $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
 // Width of the content area
-$content-width:    740px !default;
+$content-width:    768px !default;
 
-$on-palm:          600px !default;
+$on-palm:          480px !default;
 $on-laptop:        800px !default;
 
 // Use media queries like this:
