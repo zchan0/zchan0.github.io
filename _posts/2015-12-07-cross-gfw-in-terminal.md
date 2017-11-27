@@ -8,7 +8,7 @@ categories: notes tools
 * TOC
 {:toc}
 
-## Proxychains
+# Proxychains
 升级到El Capitan之前的神器，使用方式可以参考这篇文章 [^1]。不过他主要讲的使用SS的配置方式，如果是VPN的话， [ProxyList]下面应该填写
 
 ```bash
@@ -18,10 +18,10 @@ http    192.168.89.3    8080    justu    hidden
 
 具体格式可以参考`proxychains.conf`文件里的`ProxyList Format Example`
 
-## Polipo
+# Polipo
 由于终端里不能走SS的Socks5协议，只有Http[s]，所以需要将Http[s]的请求都转到Socks5上，这一步需要一个polipo的小软件，Mac的话通过Homebrew就可以安装，可以参考@clowwindy大神的介绍 [^2]。
 
-### Steps
+## Steps
 
 - 开Shadowsocks，在网络中查看本地的端口号
 - 终端里输下面的命令启动polipo
@@ -38,7 +38,7 @@ http_proxy=http://localhost:8123 https_proxy=http://localhost:8123
 // 8123是polipo的默认端口号
 ```
 
-## Tips
+# Tips
 
 - 在.zshrc或者.bashrc中添加
 
@@ -48,7 +48,9 @@ alias gfw=http_proxy=http://localhost:8123 https_proxy=http://localhost:8123
 
 - 设置完之后，来一发`gfw curl ip.cn`爽一爽 🚀
 
-## UPDATE: 05/16/2017
+# UPDATE
+
+> 05/16/2017
 
 刚换了[fish shell](https://fishshell.com)，它的语法和Bash不太一样。如果想带着环境变量执行命令(Run commands with environment variables)，需要加上`env `。比如上面的命令在fish中应该是：
 
