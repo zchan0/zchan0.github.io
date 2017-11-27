@@ -1,11 +1,11 @@
 <footer class="site-footer">
 
-      <div class="wrapper">
+	<div class="wrapper">
+    <div class="footer-col-wrapper">
+			{% assign firstPost = site.posts | last %}
+			&copy; {{ firstPost.date | date: "%Y" }}–{{ site.time | date: "%Y" }}
+      <span>😉</span> Subscribe me <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>
+		</div>
+	</div>
 
-        <div class="footer-col-wrapper">
-            Subscribe me <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>
-        </div>
-
-      </div>
-
-    </footer>
+</footer>
