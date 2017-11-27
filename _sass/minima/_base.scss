@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 /**
  * Reset some basic elements
  */
@@ -8,8 +14,6 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-
-
 /**
  * Basic styling
  */
@@ -18,11 +22,13 @@ body {
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
+  text-rendering: optimizelegibility;
 }
 
 
@@ -36,8 +42,6 @@ ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
 }
-
-
 
 /**
  * Images
@@ -60,6 +64,9 @@ figcaption {
   font-size: $small-font-size;
 }
 
+caption, th {
+  text-align: left;
+}
 
 
 /**
@@ -86,17 +93,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
 /**
  * Links
  */
 a {
   color: $brand-color;
   text-decoration: none;
-
-  &:visited {
-    color: darken($brand-color, 15%);
-  }
 
   &:hover {
     color: $text-color;
@@ -117,18 +119,61 @@ a {
  * Blockquotes
  */
 blockquote {
+  position: relative;
+  font-family: $quote-font;
+  font-weight: $base-font-weight;
   color: $grey-color;
-  border-left: 4px solid $grey-color-light;
-  padding-left: $spacing-unit / 2;
+  border-left: 0.2em solid $grey-color-light;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em;
+
   @include relative-font-size(1.125);
-  letter-spacing: -1px;
-  font-style: italic;
 
   > :last-child {
     margin-bottom: 0;
   }
 }
 
+@include media-query($on-palm) {
+  blockquote {
+    margin: 1em 0;
+  }
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/**
+ * Sub & Sup
+ */
+ sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+:root sub, :root sup {
+  vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Highlight
+ */
+mark {
+  background: $highlight-color;
+  border-bottom: 1px solid $highlight-border-color;
+  padding: 2px;
+  margin: 0 5px;
+}
 
 
 /**
@@ -137,18 +182,21 @@ blockquote {
 pre,
 code {
   @include relative-font-size(0.9375);
+  font-family: $code-font;
   border: 1px solid $grey-color-light;
   border-radius: 3px;
-  background-color: #eef;
+  background-color: $code-background-color;
 }
 
-code {
-  padding: 1px 5px;
-}
+// code {
+//   padding: 1px 5px;
+// }
 
 pre {
-  padding: 8px 12px;
+  padding: 1em 1.5em;
+  display: block;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
   > code {
     border: 0;
@@ -157,14 +205,28 @@ pre {
   }
 }
 
+hr {
+  border: none;
+  border-bottom: 1px solid $hr-color;
+  margin-bottom: 0.8em;
+  height: 10px;
+}
+
+/**
+ * post 排版
+ */
+
+ strong, b {
+  font-weight: bold;
+  color: $text-color;
+}
 
 
 /**
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width: $content-width;
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;
@@ -172,22 +234,26 @@ pre {
   @extend %clearfix;
 
   @include media-query($on-laptop) {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    max-width: $content-width;
     padding-right: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
   }
 }
 
-
-
 /**
  * Clearfix
  */
-%clearfix:after {
+%clearfix:before, %clearfix:after {
   content: "";
   display: table;
+}
+
+%clearfix:after {
   clear: both;
+}
+
+%clearfix {
+  zoom: 1;
 }
 
 
@@ -216,11 +282,21 @@ pre {
 
 // Config TOC
 // Adding 'Contents' headline to the TOC
-#markdown-toc::before {
-  content: "目录";
-  font-weight: bold;
-}
+// #markdown-toc::before {
+//   content: "目录";
+//   font-weight: bold;
+// }
 
 #markdown-toc {
   display: inline-block;
+}
+
+#markdown-toc ul {
+  margin-bottom: 0;
+}
+
+#markdown-toc a {
+  color: $brand-color;
+  border-bottom: 0;
+  box-shadow: none;
 }

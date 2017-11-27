@@ -2,24 +2,37 @@
 
 // Define defaults for each variable.
 
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif !default;
+$quote-font: Palatino, Optima, Georgia, serif;
+$code-font: Menlo, 'Spoqa Han Sans', Monaco, monospace;
+
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
-$base-line-height: 1.5 !default;
+
+$base-line-height: 1.8 !default;
+$header-line-height: 1.35;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #111 !default;
-$background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+// Colors
+$text-color:             #111 !default;
+$highlight-color:        #fffdd1 !default;
+$highlight-border-color: #ffedce !default;
+
+$code-background-color: #F8F9FA !default;
+$background-color:      #fdfdfd !default;
+$hr-color:              #cfcfcf !default;
+
+$brand-color:      #00A3BC !default;
+$link-color:       #b4e7f8 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    740px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
