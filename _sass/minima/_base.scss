@@ -188,10 +188,12 @@ code {
   background-color: $code-background-color;
 }
 
-// code {
-//   padding: 1px 5px;
-// }
+// `` code block
+code {
+  padding: 1px 5px;
+}
 
+// ``` code block
 pre {
   padding: 1em 1.5em;
   display: block;
