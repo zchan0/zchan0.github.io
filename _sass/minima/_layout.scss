@@ -190,7 +190,7 @@
   }
 
   h2 {
-    margin-bottom: 1em;
+    margin-bottom: 0.6em;
     @include relative-font-size(26 / $base-font-size);
 
     @include media-query($on-laptop) {
