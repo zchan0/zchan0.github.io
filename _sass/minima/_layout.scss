@@ -152,21 +152,6 @@
   @include relative-font-size(1.5);
 }
 
-
-
-/**
- * Posts
- */
- .post {
-  // 强制文本换行
-  // word-break: break-all;
-  word-wrap: break-word;
-
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-  }
-}
-
 .post-header {
   margin-bottom: $spacing-unit;
 }
@@ -181,6 +166,25 @@
 
 .post-content {
   margin-bottom: $spacing-unit;
+
+  // 强制文本换行
+  // word-break: break-all;
+  word-wrap: break-word;
+  text-align: justify;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    // 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化
+    line-height:1;
+    font-family:Arial,sans-serif;
+    margin: 1.4em 0 0;
+  }
+
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.6em; }
+  h3 { font-size:1.4em; }
+  h4 { font-size:1.2em; }
+  h5, h6 { font-size:1em; }
 
   h2 {
     @include relative-font-size(1.75);
