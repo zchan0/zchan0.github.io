@@ -110,7 +110,6 @@ babel-core
 如果只使用webpack的话，有一个`webpack-dev-server` 的工具可以做这两件事。但是，对于css和html，都可能需要preprocessors（比如sass和html模版引擎），而对于静态文件的处理仍然由Gulp来做比较好[^1]。所以这里采取的方式是，将js打包的部分交Webpack，上层的task runner仍由Gulp来做，本地服务器由BrowserSync来完成。参考[这篇博客](http://jsramblings.com/2016/07/16/hot-reloading-gulp-webpack-browsersync.html)和CSS-Trick的[这篇文。](https://css-tricks.com/combine-webpack-gulp-4/)
 
 > 其实这里也有说法是，单纯用 webpack 的速度更快 [^2]。并且其实 webpack 也是可以完成有关静态资源的处理的（通过loaders和plugins）。
->
 > 但是考虑到对更多的（主要是旧的）项目，还是采取上面的方式。不过回头还是要试试直接用 `webapck-dev-server`，感觉简单一些 = =
 
 这次直接用的 Gulp 4，好处是不用装 `runSequence` 来按顺序执行 task 了。可以直接使用两个新的函数：

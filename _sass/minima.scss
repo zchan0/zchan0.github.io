@@ -2,15 +2,16 @@
 
 // Define defaults for each variable.
 
-$base-font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif !default;
+$base-font-family: Noto Serif, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", sans-serif !default;
+$code-font: "Source Code Pro", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 $quote-font: Palatino, Optima, Georgia, serif;
-$code-font: "Source Code Pro", Consolas, "Liberation Mono", Menlo, Courier, monospace;;
 
 $base-font-size:   17px !default;
 $base-font-weight: 400 !default;
+$light-font-weight: 300 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 
-$base-line-height: 2 !default;
+$base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 

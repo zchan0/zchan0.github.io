@@ -120,14 +120,12 @@ a {
  */
 blockquote {
   position: relative;
+  color: $grey-color;
   font-family: $quote-font;
   font-weight: $base-font-weight;
-  color: $grey-color;
-  border-left: 0.2em solid $grey-color-light;
-  padding-left: 1em;
-  margin: 1em 3em 1em 2em;
-
-  @include relative-font-size(1.125);
+  border-left: 0.2em solid $brand-color;
+  padding: 0 0 0 1.4rem;
+  margin: 2em 3em 2em 2em;
 
   > :last-child {
     margin-bottom: 0;
@@ -209,7 +207,7 @@ pre {
 
 hr {
   border: none;
-  border-bottom: 1px solid $hr-color;
+  border-bottom: 1px dashed $hr-color;
   margin-bottom: 0.8em;
   height: 10px;
 }
