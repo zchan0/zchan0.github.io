@@ -200,7 +200,10 @@ NSString *str = [NSString stringWithUTF8String:&ch];
 
 注意当栈顶元素的优先级高于栈外元素时，要将栈顶元素弹出，此时要注意保存当前的栈外元素。算法中用的 while 循环，很容易保存，不接受下一个元素就可以了；如果是for循环的话，每次循环一定会递增，所以如果要保存当前栈外元素的话，将 `i—` 就可以啦。
 
-##isNumberic
+## isNumberic
+
+
+
 再次使用了 `NSCharacterSet` 这个类，用到了一个 `decimalDigitCharacterSet` 类方法，苹果文档里是这么说的：
 
 > Returns a character set containing the characters in the category of Decimal Numbers.
