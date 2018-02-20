@@ -39,7 +39,7 @@ GCE 如果使用 80 和 443 之外的端口，需要在[这里](https://console.
 协议和端口：指定的协议和端口 下面输入 tcp;udp:端口号 //对应科学上网应用中的端口号
 ```
 
-AWS 默认只开启了 SSH 的 22 端口，直接 `ping` public IP 都 `ping` 不通 😂 在 AWS 的管理面板中，创建新的 security groups，然后选中使用的 instance，在`action-networking-change security groups` 选择新建的 security groups。
+AWS 默认只开启了 SSH 的 22 端口，直接 `ping` public IP 都 `ping` 不通 😂 在 AWS 的管理面板中，创建新的 security groups。然后选中使用的 instance，在`'action-networking-change security groups'` 选择新建的 security groups。
 
 ```
 // ping
@@ -54,6 +54,8 @@ Protocol: TCP/UDP
 Port: 自定义的端口号
 Source: anywhere, i.e: 0.0.0.0/0
 ```
+
+![security groups](https://i.imgur.com/j1CEXYH.jpg)
 
 ## 部署科学上网应用
 
