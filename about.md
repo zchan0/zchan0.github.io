@@ -7,6 +7,7 @@ permalink: /about/
 
 ## Links
 * [Github](https://github.com/zchan0)
+* [Instagram](https://www.instagram.com/zcccen/)
 * [Twitter](https://twitter.com/zcchan0)
 * [Douban](https://www.douban.com/people/theyear/)
 * [Say Hello](mailto://zchan0@outlook.com)
