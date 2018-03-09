@@ -19,20 +19,7 @@ categories: notes frontend
 
 Archive 主要是将 posts 名称按时间排序，HTML 部分如下：
 
-```html
-<div class="post">
-	<h2>Archive</h2>
-    {% assign postsByMonthYear = site.posts | group_by_exp:"post", "post.date | date: '%b %Y'"  %}
-    {% for monthYear in postsByMonthYear %}
-      <h3>{{ monthYear.name }}</h3>
-        <ul>
-          {% for post in monthYear.items %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-    {% endfor %}
-</div>
-```
+{% gist bc26d796eac96eac8f56fd706ff3e6d4 %}
 
 Jekyll 有许多预先定义好的变量，`group_by_exp` 也是新加的一个方法，可以直接拿来用。然后定义相应 CSS 的样式即可。
 

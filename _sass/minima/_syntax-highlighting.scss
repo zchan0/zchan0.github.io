@@ -1,6 +1,13 @@
 /**
  * Syntax highlighting styles
  */
+ // 单独的代码 ``
+.highlighter-rouge {
+  border: 0;
+  background-color: $background-color;
+}
+
+// 代码块 ```
 .highlight {
   background: #fff;
   @extend %vertical-rhythm;
