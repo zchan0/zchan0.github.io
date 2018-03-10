@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AutoLayout的一些使用心得
+title: AutoLayout 的一些使用心得
 date: 2015-06-17 16:45 +0800
 ---
 
@@ -10,7 +10,7 @@ date: 2015-06-17 16:45 +0800
 
 # AutoLayout是什么
 
-我的理解是，AutoLayout是通过对界面上各个元素设定约束，来达到在各个不同设备上统一布局的目的。
+我的理解是，AutoLayout 是通过对界面上各个元素设定约束，来达到在各个不同设备上统一布局的目的。
 
 # 使用 AutoLayout 的方式
 

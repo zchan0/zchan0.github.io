@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 表达式求值：Objective-C实现
+title: 表达式求值：Objective-C 实现
 date: 2014-12-14 16:15 +0800
 
 ---
@@ -11,52 +11,56 @@ date: 2014-12-14 16:15 +0800
 
 说起表达式求值，首先想到严奶奶版的数据结构教材就有现成的算法。
 
-    OperandType EvaluateExpression(){
-    //算术表达式求值的算符优先算法，设OPTR和OPND分别为运算符合运算数栈
-    //OP为运算符集合
-    InitStack(OPTR); Push(OPTR,'#')
-    InitStack(OPND); c = getchar();
-    while(c != '#' || GetTop(OPTR) != '#'){
-        if(!In(c, OP)){
-            Push(OPND, c); 
-            c = getchar();
-        }//不是运算符则进栈
-        else
-            switch(Precede(GetTop(OPTR), c)){
-                case '<': //栈顶元素优先级低，栈外运算符入栈
-                    Push(OPTR, c);
-                    c = getchar();
-                    break;
-                case '=': //脱括号并接收下一字符
-                    Pop(OPTR,x);
-                    c = getchar();
-                    break;
-                case '>': //栈顶元素优先级高，出栈并将运算结果入栈
-                    Pop(OPTR, theta);
-                    Pop(OPND, b); Pop(OPND, a);//出栈顺序:先b后a
-                    Push(OPND, Operate(a, theta, b);//计算式:a theta b
-                    break;
-            }//switch
-     }//while
-       return GetTop(OPND);
-    }//EvaluateExpression
+```objective-c
+OperandType EvaluateExpression(){
+//算术表达式求值的算符优先算法，设OPTR和OPND分别为运算符合运算数栈
+//OP为运算符集合
+InitStack(OPTR); Push(OPTR,'#')
+InitStack(OPND); c = getchar();
+while(c != '#' || GetTop(OPTR) != '#'){
+    if(!In(c, OP)){
+        Push(OPND, c); 
+        c = getchar();
+    }//不是运算符则进栈
+    else
+        switch(Precede(GetTop(OPTR), c)){
+            case '<': //栈顶元素优先级低，栈外运算符入栈
+                Push(OPTR, c);
+                c = getchar();
+                break;
+            case '=': //脱括号并接收下一字符
+                Pop(OPTR,x);
+                c = getchar();
+                break;
+            case '>': //栈顶元素优先级高，出栈并将运算结果入栈
+                Pop(OPTR, theta);
+                Pop(OPND, b); Pop(OPND, a);//出栈顺序:先b后a
+                Push(OPND, Operate(a, theta, b);//计算式:a theta b
+                break;
+        }//switch
+ }//while
+   return GetTop(OPND);
+}//EvaluateExpression
+```
 
 分析这个算法，可以整理出首先要实现一个栈，然后实现下面几个方法：
 
-    //判断输入的字符是运算符还是操作数
-    -(BOOL)isOperator:(NSString *)ch;
+```objective-c
+//判断输入的字符是运算符还是操作数
+-(BOOL)isOperator:(NSString *)ch;
+
+//判断输入的字符串中是否含有非法字符（除了数字和运算符之外）
+-(BOOL)isNumberic:(NSString *) ch;
+
+//比较栈外和栈内元素优先级
+-(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr;
+
+//计算opnd1 optr opnd2
+-(double)calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr;
     
-    //判断输入的字符串中是否含有非法字符（除了数字和运算符之外）
-    -(BOOL)isNumberic:(NSString *) ch;
-    
-    //比较栈外和栈内元素优先级
-    -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr;
-    
-    //计算opnd1 optr opnd2
-    -(double)calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr;
-        
-    //实现上述算法
-    -(NSString *)ExpressionCalculate:(NSString *)inputString;
+//实现上述算法
+-(NSString *)ExpressionCalculate:(NSString *)inputString;
+```
 
 # 栈的实现
 
@@ -76,7 +80,7 @@ pop函数：最开始使用的下面的函数定义：
 NSString *a;
 [pop:a stack:self.opnd]; //NSLog: a = null
 ```
-所以修改了下，用一个 `property` 存放 `pop` 出来的元素，并赋上pop的返回值：
+所以修改了下，用一个 `property` 存放 `pop` 出来的元素，并赋上 `pop` 的返回值：
 
 ```objective-c
 -(NSString *)pop:(Stack *)stack
@@ -90,10 +94,10 @@ a = [self.opnd pop:self.opnd];
 
 ## comparePriority
 
-1. 使用字典NSDictionary，按栈内和栈外分两个字典存放优先级；
+1. 使用字典 NSDictionary，按栈内和栈外分两个字典存放优先级；
 2. 优先级采用[这里](http://wenku.baidu.com/view/0f90ab92daef5ef7ba0d3c60.html?re=view)定义的一个表；
 3. 两个优先级字典采用*类方法*初始化；
-4. 优先级比较的时候，用到NSString与NSInteger的转化
+4. 优先级比较的时候，用到 NSString 与 NSInteger 的转化
 
 ```objective-c
  //NSInteger转化NSString类型：
@@ -152,8 +156,8 @@ self.arrayToCalculate = [inputString componentsSeparatedByCharactersInSet: [NSCh
 
 > Adjacent occurrences of the separator characters produce empty strings in the result. Similarly, if the string begins or ends with separator characters, the first or last substring, respectively, is empty.
 
-处理分割string的时候，如果连续出现了用于分割的字符集合set中的两个字符，或者刚好set中的字符处于string的开始或结尾的地方，就会出现空白。
-[StackOverflow](http://stackoverflow.com/questions/18057167/componentsseparatedbycharactersinset-issue)上有人给了一个处理第二种情况的办法，即采用`stringByTrimmingCharactersInSet`函数，将开始和结尾处的set中的字符trim掉。
+处理分割 string 的时候，如果连续出现了用于分割的字符集合 set 中的两个字符，或者刚好 set 中的字符处于 string 的开始或结尾的地方，就会出现空白。
+[StackOverflow](http://stackoverflow.com/questions/18057167/componentsseparatedbycharactersinset-issue)上有人给了一个处理第二种情况的办法，即采用`stringByTrimmingCharactersInSet`函数，将开始和结尾处的 set 中的字符trim 掉。
 
 对于运算符，是对字符串进行逐个扫描，提取出 `+-*/` 等运算符号；如果采用提取数字的同样的方法，会出现 `(-` 这样、括号和运算符连在一起的情况，因为它们都在我给的运算符集合中，连在一起的时候自然不会分割。
 
@@ -165,7 +169,7 @@ self.arrayToCalculate = [inputString componentsSeparatedByCharactersInSet: [NSCh
 //删除下标为0的（即第一个元素）
 [self.arrayToCalculate removeObjectAtIndex:0];     
 ```
-### 类型转换
+### 一些类型转换
 
 double 与 NSString 的相互转换
 
@@ -194,7 +198,7 @@ NSString *str = [NSString stringWithUTF8String:&ch];
 ```
 使用 `stringWithUTF8String:`的话，str 末尾会包含 `\n`，看[我的问题](http://segmentfault.com/q/1010000002416827)就知道这是一个多么让人伤心的领悟。
 
-另外 `stringWithFormat:` 是个挺万金油的方法，好像可以把大家都变成NSString的样子。
+另外 `stringWithFormat:` 是个挺万金油的方法，好像可以把大家都变成NSString 的样子。
 
 最后一点是，使用 for 循环也可以让当前元素停下来。
 
@@ -209,10 +213,10 @@ NSString *str = [NSString stringWithUTF8String:&ch];
 > Returns a character set containing the characters in the category of Decimal Numbers.
 > nformally, this set is the set of all characters used to represent the decimal values 0 through 9. These characters include, for example, the decimal digits of the Indic scripts and Arabic.
 
-但是将Digits打印出来是这样的：`__NSCFCharacterSet: 0x7ffb4ad23b60`，不太明白是什么玩意儿。
+但是将 Digits 打印出来是这样的：`__NSCFCharacterSet: 0x7ffb4ad23b60`，不太明白是什么玩意儿。
 
 # 效果图
 
 ![效果图](https://sfault-image.b0.upaiyun.com/307/286/3072867390-5489c133c2177)
 
-[repo](https://github.com/zchan0/Calculator/blob/master/MyCalculator/Calculate.h)
+[Repo](https://github.com/zchan0/Calculator/blob/master/MyCalculator/Calculate.h)

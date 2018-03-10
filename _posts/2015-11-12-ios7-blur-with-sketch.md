@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 利用Sketch画iOS7的毛玻璃效果
+title: 使用 Sketch 画 iOS7 的毛玻璃效果
 date: 2015-11-12 16:45 +0800
 ---
 
@@ -8,9 +8,9 @@ date: 2015-11-12 16:45 +0800
 {:toc}
 
 
-最近在学习用 Sketch 画UI，学会了一个很实用的画法，另外用了Content Generator这个插件后整个人都舒爽了，记在这里备忘和分享。:)
+最近在学习用 Sketch 画 UI，学会了一个很实用的画法。另外用了 Content Generator 这个插件后整个人都舒爽了，记在这里备忘和分享。:)
 
-# 使用Sketch实现iOS7的毛玻璃效果
+# 使用 Sketch 画 iOS7 的毛玻璃效果
 
 - 添加背景图片
 - 画矩形块覆盖图片
@@ -24,8 +24,8 @@ date: 2015-11-12 16:45 +0800
 
 # Sketch Plugins
 
-- 下载[Sketch Toolbox](http://sketchtoolbox.com)
-- 搜索Content Generator下载并安装
+- 下载 [Sketch Toolbox](http://sketchtoolbox.com)
+- 搜索 Content Generator 下载并安装
 - 开始使用吧
 
  ![content-gen.gif](https://sfault-image.b0.upaiyun.com/794/588/7945882-54f7bf8cbdb12)
