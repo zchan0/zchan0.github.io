@@ -2,7 +2,7 @@
 
 // Define defaults for each variable.
 
-$base-font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, Serif;
+$base-font-family: Lato, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, Serif;
 $code-font: "Source Code Pro", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 $quote-font: Palatino, Optima, Georgia, serif;
 
@@ -60,3 +60,5 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting"
 ;
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
