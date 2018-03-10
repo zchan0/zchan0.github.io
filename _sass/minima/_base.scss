@@ -281,22 +281,30 @@ hr {
 
 // Config TOC
 // Adding 'Contents' headline to the TOC
-// #markdown-toc::before {
-//   content: "目录";
-//   font-weight: bold;
-// }
+#markdown-toc::before {
+  content: "On this page:";
+  font-weight: bold;
+  font-size: 1.2em;
+  display: block;
+  height: 2em;
+}
 
 #markdown-toc {
-  display: inline-block;
-  @extend %vertical-rhythm;
+  display: block;
+  padding: 0.5em 2em;
+  margin-left: 0;
+  margin-bottom: 20px;
+  background-color: #EEEEEE;
+  border-left: 5px solid $brand-color;
+
+  line-height: 1.7em;
 }
 
 #markdown-toc ul {
-  margin-bottom: 0;
+  padding: 0;
 }
 
 #markdown-toc a {
-  color: $brand-color;
   border-bottom: 0;
   box-shadow: none;
 }
