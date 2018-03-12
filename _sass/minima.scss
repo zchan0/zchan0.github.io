@@ -2,7 +2,7 @@
 
 // Define defaults for each variable.
 
-$base-font-family: Lato, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial, Serif;
+$base-font-family: Lato, Ubuntu, 'PingFang SC', 'Microsoft YaHei', Arial, Serif;
 $code-font: "Source Code Pro", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 $quote-font: Palatino, Optima, Georgia, serif;
 
@@ -21,7 +21,7 @@ $highlight-color:        #fffdd1 !default;
 $highlight-border-color: #ffedce !default;
 
 $code-background-color: #f8f9fa !default;
-$background-color:      #fdfdfd !default;
+$background-color:      #ffffff !default;
 $hr-color:              #cfcfcf !default;
 
 $brand-color:      #00A3BC !default;
@@ -62,3 +62,4 @@ $on-laptop:        800px !default;
 ;
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('//lib.f2ex.cn/cdn/googlefonts/css/Ubuntu.css?family=Ubuntu');
