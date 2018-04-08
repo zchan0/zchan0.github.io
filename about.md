@@ -7,7 +7,7 @@ permalink: /about/
 
 你还可以在这些地方找到我：
 * [Github](https://github.com/zchan0)
-* [Twitter](https://twitter.com/zcchan0)
+* [Twitter](https://twitter.com/cisssyz)
 * [Douban](https://www.douban.com/people/theyear/)
 * [Instagram](https://www.instagram.com/zcccen/)
 
