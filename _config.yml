@@ -14,10 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Cc's Blog
-email: zchan0@outlook.com
+email: zhengcc124@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://blog.minesecret.space/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://zhengcc.me/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # social accounts
 twitter_username: zcchan0
@@ -34,7 +34,7 @@ google_analytics: UA-110171624-1
 social:
   name: zchan0
   links:
-    - https://twitter.com/zcchan0
+    - https://twitter.com/cisssyz
     - https://www.douban.com/people/theyear/
     - https://instagram.com/zcccen/
     - https://github.com/zchan0
