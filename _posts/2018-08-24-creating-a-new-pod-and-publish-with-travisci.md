@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 制作 CocoaPods 第三方库并利用 TravisCI 持续集成
+title: 制作自己的 CocoaPods 库并利用 TravisCI 持续集成
 date: 2018-08-24 19:23 +0800
 ---
 
