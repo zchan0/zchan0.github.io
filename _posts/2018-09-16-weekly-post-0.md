@@ -28,7 +28,7 @@ date: 2018-09-15 13:11 +0800
 
 为了 push 和 pop 页面时动画的一致性，我给这个单例加了一个 base controller 属性，并用了 `strong` 来修饰，于是问题来了。由于单例会被全局持有，而 base controller 又被单例持有，所以页面关闭之后，base controller 仍然存在，造成了**内存泄漏**。
 
-解决方式比较简单，将其声明为 `weak` 就好了。更多关于 Objective-C 实现单例，另写了一篇笔记。
+解决方式比较简单，将其声明为 `weak` 就好了。更多关于 Objective-C 实现单例，另写了一篇[笔记]({% post_url 2018-09-16-implement-singleton-with-objective-c %})。
 
 # 踩到的坑
 
