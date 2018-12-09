@@ -112,7 +112,7 @@ debug 的时候发现 webView 会在加载完 url 之后，就调用 `scrollView
 
 • https://stackoverflow.com/a/25351208
 
-## 关于 UILabel 设置 AttributedString 以后末尾...不出现的问题
+## 关于 UILabel 设置 AttributedText 以后末尾...不出现的问题
 
 两种方案：
 
