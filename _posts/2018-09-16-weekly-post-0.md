@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 周记 1：Objective-C 中的 BOOL 类型
+title: 一周小结 1：Objective-C 中的 BOOL 类型
 date: 2018-09-15 13:11 +0800
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 周记 5：实现一个以固定间距左对齐的 UICollectionViewFlowLayout
+title: 一周小结 5：实现一个以固定间距左对齐的 UICollectionViewFlowLayout
 date: 2018-12-09 11:24 +0800
 ---
 

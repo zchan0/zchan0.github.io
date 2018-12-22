@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 周记 4：使用 BlocksKit 的一个注意事项
+title: 一周小结 4：使用 BlocksKit 的一个注意事项
 date: 2018-12-02 18:15 +0800
 ---
 

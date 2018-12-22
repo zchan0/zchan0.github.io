@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 周记 3：一个叫 AlamofireOAuth1 的库
+title: 一周小结 3：一个叫 AlamofireOAuth1 的库
 date: 2018-10-01 17:19 +0800
 ---
 
