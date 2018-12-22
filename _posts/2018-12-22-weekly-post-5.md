@@ -10,7 +10,7 @@ date: 2018-12-22 13:13 +0800
 
 ## 方案一
 
-说到计算时间差的方式，一般都会想到使用 [`components:fromDate:toDate:options:`](https://developer.apple.com/documentation/foundation/nscalendar/1408595-ordinalityofunit) ，比如：
+说到计算时间差的方式，一般都会想到使用`components:fromDate:toDate:options:` ，比如：
 
 ```objective-c
 NSDate *startDate = ...;
@@ -35,7 +35,7 @@ NSInteger days = [components day];
 
 ## 方案二
 
-另一种方案是使用 [`ordinalityOfUnit:inUnit:forDate:`](https://developer.apple.com/documentation/foundation/nscalendar/1408595-ordinalityofunit)。这个方法在计算相差多少天时，不是通过是否超过 24 小时来判断的，而是会考虑上面提到的凌晨十二点。
+另一种方案是使用 `ordinalityOfUnit:inUnit:forDate:`。这个方法在计算相差多少天时，不是通过是否超过 24 小时来判断的，而是会考虑上面提到的凌晨十二点。
 
 ```objective-c
 @implementation NSCalendar (MySpecialCalculations)
@@ -57,7 +57,7 @@ NSInteger days = [components day];
 NSDate *nowDate = [[NSDate date] dateByAddingTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT]];
 ```
 
-参考：[Performing Calendar Calculations | Apple](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/DatesAndTimes/Articles/dtCalendricalCalculations.html#//apple_ref/doc/uid/TP40007836-SW8)
+参考：Performing Calendar Calculations
 
 # 从 WebView 预加载说起
 
@@ -67,7 +67,9 @@ NSDate *nowDate = [[NSDate date] dateByAddingTimeInterval:[[NSTimeZone localTime
 [self.webViewController.view layoutSubviews]
 ```
 
-于是搜索了下，在[这篇文章](https://coderwall.com/p/trjkcg/preloading-uiwebview-or-wkwebview-in-swift)里提到可以使用 `webViewController.view.setNeedsLayout()` ，并且异步地调用。不要使用 `layoutIfNeeded` ，因为会阻塞主线程（它必须在主线程去执行）。比如：
+于是搜索了下，在[这篇文章](https://coderwall.com/p/trjkcg/preloading-uiwebview-or-wkwebview-in-swift)里提到可以使用 `webViewController.view.setNeedsLayout()` ，并且异步地调用。不要使用 `layoutIfNeeded` ，因为会阻塞主线程（它必须在主线程去执行）。
+
+例子：
 
 ```swift
 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -81,11 +83,13 @@ dispatch_async(dispatch_get_main_queue(), { () -> Void in
 
 ![布局错误](https://i.imgur.com/xIRMsH0.png)
 
-Debug 后发现 webViewController 在创建 errorView 时候的 `frame` 不正确，为整个屏幕的大小。发现在给`webViewController.view` 的 `frame` 赋正确的值之前，先触发了 webViewController 的 `viewDidLoad` 方法，在 `viewDidLoad` 方法里自然会去请求加载 URL，由于请求失败，则会显示请求错误的页面。而由于 errorView 是使用懒加载的方式创建的， 并且它的布局是通过 `initWithFrame:` 来设置的，此时的 view 大是整个屏幕的大小了。
+Debug 后发现 webViewController 在创建 errorView 时候的 `frame` 不正确，为整个屏幕的大小。
+
+发现在给`webViewController.view` 的 `frame` 赋正确的值之前，先触发了 webViewController 的 `viewDidLoad` 方法，在 `viewDidLoad` 方法里自然会去请求加载 URL，由于请求失败，则会显示请求错误的页面。而由于 errorView 是使用懒加载的方式创建的， 并且它的布局是通过 `initWithFrame:` 来设置的，此时的 view 大是整个屏幕的大小了。
 
 破案了。改成用约束布局就可以了。
 
 经过这个 bug 可以小结两件事：
 
 1. 应该不用调用 `setNeedsLayout` 也可以触发 `viewDidLoad`，关键点在于访问了 `view`。
-2. 使用懒加载创建的属性变量，需要考虑被设置的属性值是否可能变化，变化后有没有其它地方会 update 这个值。比如上述的使用 `initWithFrame:` 来布局，以及在懒加载里给 collectionView 或者 tableView 设置 delegate 和 datasource。
+2. 使用懒加载创建的属性变量，需要考虑被设置的属性值是否可能变化，变化后有没有其它地方会 update 这个值。比如上述的使用 `initWithFrame:` 布局，以及在懒加载里给 collectionView 或者 tableView 设置 delegate 和 datasource。
