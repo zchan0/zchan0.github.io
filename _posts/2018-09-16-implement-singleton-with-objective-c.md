@@ -78,9 +78,9 @@ to:
 
 # Weak Singleton
 
-[这篇](https://www.ios-blog.co.uk/tutorials/objective-c-ios-weak-singletons/)文章介绍了一种 weak 单例模式，挺有趣的。这种方式，可以改变传统的单例存在于整个 app 的生命周期的情况，当没有对象持有单例时，它就会被释放掉；下一次访问的时候，它又会新建一个新的实例。
+[这篇](https://www.ios-blog.co.uk/tutorials/objective-c-ios-weak-singletons/)文章介绍了一种 weak 单例模式。这种方式，可以改变传统的单例存在于整个 app 的生命周期的情况，当没有对象持有单例时，它就会被释放掉；下一次访问的时候，它又会新建一个新的实例。
 
 使用这种方式要注意两点吧（虽然还没试过，从 demo 代码来看）：
 
 - 其实这种 weak 单例模式是无状态的（因为它会被释放
-- 使用的时候，需要 `strong` 持有这个单例
+- 使用的时候，需要一个对象来持有这个单例

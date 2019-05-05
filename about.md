@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /about/
 ---
-[Say hello](mailto://zchan0@outlook.com)
+[Say hello](mailto://cisssyz@gmail.com)
 
 你还可以在这些地方找到我：
 * [Github](https://github.com/zchan0)

@@ -30,11 +30,9 @@ date: 2018-09-15 13:11 +0800
 
 解决方式比较简单，将其声明为 `weak` 就好了。更多关于 Objective-C 实现单例，另写了一篇[笔记]({% post_url 2018-09-16-implement-singleton-with-objective-c %})。
 
-# 踩到的坑
+# TIL
 
 ## Objective-C 中的 BOOL 类型
-
->  严格来说也不能算作是坑，只是自己的孤陋寡闻罢了 = =
 
 在解一个 iPhone 4s 上的 bug 的时候，发现同样是返回值为 BOOL 的方法，通过`method_getReturnType()` 拿到的 type 在 iphone 4s 上是 `c`，而在其它机型上则是 `B`，这就比较迷了。在 [iOS-深挖BOOL](https://www.jianshu.com/p/d23334e7cb35) 这篇里，才发现 BOOL 并不是一个真正的类型，而是由 `typedef` 定义的其它类型的**别名**而已。
 

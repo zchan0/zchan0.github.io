@@ -6,8 +6,6 @@ date: 2018-08-24 19:23 +0800
 
 * TOC
 {:toc}
-
-
 一般 *howto* 应该是先从官方文档开始。以下两篇是非常好的入门教程了：
 
 - [Making a CocoaPod](https://guides.cocoapods.org/making/making-a-cocoapod.html)
