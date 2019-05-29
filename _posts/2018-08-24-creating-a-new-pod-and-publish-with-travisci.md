@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 制作自己的 CocoaPods 库并利用 TravisCI 持续集成
+title: 制作 CocoaPods 库并使用 TravisCI 持续集成
 date: 2018-08-24 19:23 +0800
 ---
 
@@ -102,7 +102,7 @@ pod spec lint
     - WARN  | [iOS] swift: The validator used Swift 3.2 by default because no Swift version was specified. To specify a Swift version during validation, add the `swift_version` attribute in your podspec. Note that usage of the `--swift-version` parameter or a `.swift-version` file is now deprecated.
 ```
 
-之前看到一种方式是，新建一个 `.swift-version` 的文件，其中写上使用的 swift version。但是看这个 message 的意思是这种方式是 deprecated 了，所以推荐采用在 `XXX.podspect` 中加入：
+之前看到一种方式是，新建一个 `.swift-version` 的文件，其中写上使用的 swift version。但是看这个 message 的意思是这种方式是 deprecated 了，所以推荐采用在 `XXX.podspec` 中加入：
 
 ```shell
 s.swift_version = ‘4.0’
