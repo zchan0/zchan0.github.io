@@ -1,6 +1,6 @@
 ---
 layout: post
-title: iOS 微信分享实现
+title: iOS 实现分享到微信
 date: 2017-04-20 10:10 -0500
 categories: notes iOS
 ---
