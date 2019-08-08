@@ -8,7 +8,7 @@ date: 2018-09-24 11:01 +0800
 {:toc}
 # 弱单例模式实践
 
-这周尝试了[这篇笔记]({% post_url 2018-09-16-implement-singleton-with-objective-c %})里提到的弱单例模式。使用场景在[上周]({% post_url 2018-09-16-weekly-post-0 %})提到过：
+这周尝试了[这篇笔记]({% post_url 2018-09-16-implement-singleton-with-objective-c %})里提到的弱单例模式。使用场景：
 
 > 这个需求的背景是，开发某个功能时，由于 Web 实现的页面和 Native 的页面间会不断来回跳转，需要考虑清理当前 navigation controller 的栈（避免形成环、并且能 push 和 pop 到产品指定的页面等），转场的动画，以及传递参数等。
 >
