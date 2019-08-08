@@ -80,11 +80,7 @@ dispatch_async(dispatch_get_main_queue(), { () -> Void in
 )}
 ```
 
-前两天遇到一个有点奇怪的 bug ：webViewController 的网络请求失败的空页面出现了布局错误。
-
-![布局错误](https://i.imgur.com/xIRMsH0.png)
-
-Debug 后发现 webViewController 在创建 errorView 时候的 `frame` 不正确，为整个屏幕的大小。
+前两天遇到一个有点奇怪的 bug ：webViewController 的网络请求失败的空页面出现了布局错误。 Debug 后发现 webViewController 在创建 errorView 时候的 `frame` 不正确，为整个屏幕的大小。
 
 发现在给`webViewController.view` 的 `frame` 赋正确的值之前，先触发了 webViewController 的 `viewDidLoad` 方法，在 `viewDidLoad` 方法里自然会去请求加载 URL，由于请求失败，则会显示请求错误的页面。而由于 errorView 是使用懒加载的方式创建的， 并且它的布局是通过 `initWithFrame:` 来设置的，此时的 view 大是整个屏幕的大小了。
 
